@@ -1,0 +1,215 @@
+-- --- disable default plugins ---
+local disabled_built_ins = {
+	"netrwSettings",
+	"netrw",
+	"netrwFileHandlers",
+	"gzip",
+	"zip",
+	"zipPlugin",
+	"tar",
+	"tarPlugin",
+	"getscript",
+	"getscriptPlugin",
+	"vimball",
+	"vimballPlugin",
+	"2html_plugin",
+	"logipat",
+	"rrhelper",
+	"spellfile_plugin",
+	"matchit",
+    "python3_provider",
+    "ruby_provider",
+    "node_provider",
+    "perl_provider"
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+	vim.g["loaded_" .. plugin] = 1
+end
+
+-- --- General settings ---
+-- enable line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- enable corrections for the english language
+vim.opt.spell = true
+vim.opt.spelllang = "en,de"
+
+-- fix end of line
+vim.opt.fixeol = false
+
+-- disables redraw on some events
+vim.opt.lazyredraw = true
+
+-- automatically load changed files
+vim.opt.autoread = true
+
+-- show filename in title
+vim.opt.title = true
+
+-- let vim open up to 100 tabs at once
+vim.opt.tabpagemax = 100
+
+-- case-insensitive filename completion
+vim.opt.wildignorecase = true
+
+-- Make sign gutter autosize with two rows
+vim.opt.signcolumn = "yes:2"
+
+-- Automatically read file changes
+vim.opt.autoread = true
+
+-- Split vertical windows right to the current window
+vim.opt.splitright = true
+
+-- Split horizontal windows below the current window
+vim.opt.splitbelow = true
+
+-- Set keycombo timeout to 250ms
+vim.opt.timeoutlen = 300
+
+-- enable true color
+vim.opt.termguicolors = true
+
+-- Set default file encoding to utf8
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
+-- Set the minimum distance between cursor and vertical screen bounds.
+vim.opt.scrolloff=20
+
+-- --- Searching ---
+-- When there is a previous search pattern, highlight all its matches
+vim.opt.hlsearch = true
+
+-- Enable live replacement when using substitude
+vim.opt.inccommand = "nosplit"
+
+-- While typing a search command, show immediately where the so far typed pattern matches
+vim.opt.incsearch = true
+
+-- Don't ignore case in search patterns
+vim.opt.ignorecase = false
+
+-- Override the 'ignorecase' option if the search pattern contains uppercase characters
+vim.opt.smartcase = true
+
+-- Search from top when at bottom
+vim.opt.wrapscan = true
+
+-- Enable softwrapping
+vim.opt.wrap = true
+
+-- --- Indenting ---
+-- styling options
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+-- When auto-indenting, use the indenting format of the previous line
+vim.opt.copyindent = false
+
+-- When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'.
+-- 'tabstop' is used in other places. A <BS> will delete a 'shiftwidth' worth of
+-- space at the start of the line.
+vim.opt.smarttab = true
+
+-- Copy indent from current line when starting a new line (typing <CR> in Insert
+-- mode or when using the "o" or "O" command)
+vim.opt.autoindent = true
+
+-- Automatically inserts one extra level of indentation in some cases, and works
+-- for C-like files
+vim.opt.smartindent = false
+
+-- --- Temp files ---
+-- Set the temporary file directories to something more usable.
+vim.opt.backupdir = "/home/daniel/.local/share/nvim/backup//"
+vim.opt.directory = "/home/daniel/.local/share/nvim/swap//"
+vim.opt.undodir = "/home/daniel/.local/share/nvim/undo//"
+vim.opt.undofile = true
+
+-- Remap the leader to ;
+vim.g.mapleader = ';'
+
+-- A few session options from auto-session.
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Enable Wrapping
+vim.wo.wrap = true
+vim.wo.linebreak = true
+vim.wo.list = false
+
+-- --- Key remapping ---
+local function map(mode, lhs, rhs, opts)
+	local options = { noremap = false, silent = false }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+local function t(str)
+	return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+-- Tabswitching
+vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
+vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
+
+-- Tab-move
+vim.keymap.set("n", "mT", "<cmd>BufferMoveNext<CR>", {})
+vim.keymap.set("n", "mt", "<cmd>BufferMovePrevious<CR>", {})
+
+-- Jump to code diagnostics
+vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
+vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {})
+vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, {})
+vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, {})
+
+-- Debugging
+vim.keymap.set("n", "db", function() require('dap').toggle_breakpoint() end, {})
+vim.keymap.set("n", "dc", function() require('dap').continue() end, {})
+vim.keymap.set("n", "<Up>", function() require('dap').step_back() end, {})
+vim.keymap.set("n", "<Down>", function() require('dap').step_over() end, {})
+vim.keymap.set("n", "<Right>", function() require('dap').step_into() end, {})
+vim.keymap.set("n", "<Left>", function() require('dap').step_out() end, {})
+
+-- Hover show
+vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, {})
+
+-- Misc.
+vim.keymap.set("n", "<leader>s", function() require("telescope.builtin").spell_suggest{} end, {})
+vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").live_grep{} end, {})
+vim.keymap.set("n", "<leader>n", '<cmd>NnnPicker<CR>', {})
+vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
+
+-- Lsp actions.
+vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
+vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {})
+
+-- Toggles inlay hints, (function argument names, types, usw).
+function toggle_inlay_hint()
+    if vim.lsp.inlay_hint.is_enabled() then
+        vim.lsp.inlay_hint.enable(false, { bufnr })
+    else
+        vim.lsp.inlay_hint.enable(true, { bufnr })
+    end
+end
+
+-- Autocommands
+-- On hover floating window.
+vim.api.nvim_create_augroup('bufcheck', {clear = true})
+
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd('CursorHold', {
+    group = "bufcheck",
+    pattern = '*',
+    callback = function()
+        vim.diagnostic.open_float(0, {scope="line", focusable=false})
+    end,
+})
+
+require("config.lazy")
