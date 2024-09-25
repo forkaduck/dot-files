@@ -126,9 +126,9 @@ vim.opt.smartindent = false
 
 -- --- Temp files ---
 -- Set the temporary file directories to something more usable.
-vim.opt.backupdir = "/home/daniel/.local/share/nvim/backup//"
-vim.opt.directory = "/home/daniel/.local/share/nvim/swap//"
-vim.opt.undodir = "/home/daniel/.local/share/nvim/undo//"
+vim.opt.backupdir = vim.fn.expand("$HOME/.local/share/nvim/backup//")
+vim.opt.directory = vim.fn.expand("$HOME/.local/share/nvim/swap//")
+vim.opt.undodir = vim.fn.expand("$HOME.local/share/nvim/undo//")
 vim.opt.undofile = true
 
 -- Remap the leader to ;
