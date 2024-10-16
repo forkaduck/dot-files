@@ -160,14 +160,14 @@ vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
 vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
 
 -- Tab-move
-vim.keymap.set("n", "mT", "<cmd>BufferMoveNext<CR>", {})
-vim.keymap.set("n", "mt", "<cmd>BufferMovePrevious<CR>", {})
+vim.keymap.set("n", ">", "<cmd>BufferMoveNext<CR>", {})
+vim.keymap.set("n", "<", "<cmd>BufferMovePrevious<CR>", {})
 
 -- Jump to code diagnostics
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {})
-vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, {})
-vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, {})
+vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions{} end, {})
+vim.keymap.set("n", "gi", function() require("telescope.builtin").lsp_implementations{} end, {})
+vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references{} end, {})
 
 -- Debugging
 vim.keymap.set("n", "db", function() require('dap').toggle_breakpoint() end, {})
@@ -185,6 +185,8 @@ vim.keymap.set("n", "<leader>s", function() require("telescope.builtin").spell_s
 vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").live_grep{} end, {})
 vim.keymap.set("n", "<leader>n", '<cmd>NnnPicker<CR>', {})
 vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
+vim.keymap.set("n", "<leader>th", function() toggle_inlay_hint() end, {})
+
 
 -- Lsp actions.
 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
