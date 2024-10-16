@@ -58,24 +58,28 @@ function cmp_init()
         sources = cmp.config.sources({
             { 
                 name = "nvim_lsp",
-                priority = 8
-            },
-            {
-                name = "nvim_lsp_signature_help",
-                priority = 8
+                priority = 4
             },
             { 
                 name = "path",
-                priority = 7
+                priority = 3
+            },
+            {
+                name = "codeium",
+                priority = 3
             },
             { 
                 name = "treesitter",
-                priority = 9
+                priority = 3
             },
             {
                 name = "luasnip",
                 priority = 2
             },
+            {
+                name = "buffer",
+                priority = 1
+            }
         }),
         formatting = {
             format = function(entry, vim_item)

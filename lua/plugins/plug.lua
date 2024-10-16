@@ -189,11 +189,24 @@ return {
         }
     },
 
+    -- Displays Marks in gutter.
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
         opts = {
               default_mappings = true,
         },
+    },
+
+    {
+        "Exafunction/codeium.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({
+            })
+        end
     },
 }
