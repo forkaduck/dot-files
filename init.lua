@@ -142,6 +142,9 @@ vim.wo.wrap = true
 vim.wo.linebreak = true
 vim.wo.list = false
 
+-- Add characters as word boundaries
+--  vim.opt.iskeyword.remove("_") // TODO
+
 -- --- Key remapping ---
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = false, silent = false }

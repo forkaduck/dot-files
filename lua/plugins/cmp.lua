@@ -68,10 +68,10 @@ function cmp_init()
                 name = "codeium",
                 priority = 3
             },
-            { 
-                name = "treesitter",
-                priority = 3
-            },
+            --  { 
+                --  name = "treesitter",
+                --  priority = 3
+            --  },
             {
                 name = "luasnip",
                 priority = 2

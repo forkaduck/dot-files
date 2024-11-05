@@ -82,7 +82,7 @@ return {
     },
 
 	-- Nice list plugin
-	{ 
+	{
         "nvim-telescope/telescope.nvim",
         opts = {},
         dependencies = { 'nvim-lua/plenary.nvim' }
@@ -96,7 +96,7 @@ return {
 
 
     -- Indent guides
-	{ 
+	{
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require("ibl").setup()
@@ -198,6 +198,7 @@ return {
         },
     },
 
+    -- AI Coding Assistent
     {
         "Exafunction/codeium.nvim",
         dependencies = {
@@ -209,4 +210,15 @@ return {
             })
         end
     },
+
+    -- Remove lines at the end of files.
+    {
+        "mcauley-penney/tidy.nvim",
+        config = true,
+    },
+
+    -- Number base conversion plugin.
+    {
+        "rr-/vim-hexdec"
+    }
 }
