@@ -9,6 +9,16 @@ function lspconfig_init()
         if client.server_capabilities.documentFormattingProvider then
             vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ async = false})")
         end
+
+        for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+            local default_diagnostic_handler = vim.lsp.handlers[method]
+            vim.lsp.handlers[method] = function(err, result, context, config)
+                if err ~= nil and err.code == -32802 then
+                    return
+                end
+                return default_diagnostic_handler(err, result, context, config)
+            end
+        end
     end
 
     require("lspconfig").rust_analyzer.setup({
@@ -28,6 +38,9 @@ function lspconfig_init()
                     enable = true
                 }
             },
+            checkOnSave = {
+                command = "clippy"
+            },
         }
     })
 
@@ -36,7 +49,7 @@ function lspconfig_init()
         capabilities = capabilities,
         on_attach = on_attach,
     })
-     
+
 
     require("lspconfig").pyright.setup({
         capabilities = capabilities,

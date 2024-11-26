@@ -143,7 +143,7 @@ vim.wo.linebreak = true
 vim.wo.list = false
 
 -- Add characters as word boundaries
---  vim.opt.iskeyword.remove("_") // TODO
+--  vim.o.iskeyword = "@-@"
 
 -- --- Key remapping ---
 local function map(mode, lhs, rhs, opts)
