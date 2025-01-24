@@ -72,6 +72,7 @@ function dap_init()
     dap.configurations.cpp = dap_lldb_conf
     dap.configurations.c = dap_lldb_conf
     dap.configurations.rust = dap_lldb_conf
+    dap.defaults.fallback.terminal_win_cmd = 'vsplit new'
 end
 
 return {
