@@ -175,6 +175,7 @@ vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references
 -- Debugging
 vim.keymap.set("n", "db", function() require('dap').toggle_breakpoint() end, {})
 vim.keymap.set("n", "dc", function() require('dap').continue() end, {})
+vim.keymap.set("n", "dr", function() require('dap').repl.open({}, 'vsplit') end, {})
 vim.keymap.set("n", "<Up>", function() require('dap').step_back() end, {})
 vim.keymap.set("n", "<Down>", function() require('dap').step_over() end, {})
 vim.keymap.set("n", "<Right>", function() require('dap').step_into() end, {})
