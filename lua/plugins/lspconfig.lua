@@ -39,7 +39,8 @@ function lspconfig_init()
                 }
             },
             checkOnSave = {
-                command = "clippy"
+                command = "clippy",
+                allTargets = true
             },
         }
     })
