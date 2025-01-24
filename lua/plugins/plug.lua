@@ -182,7 +182,6 @@ return {
         'rmagatti/auto-session',
         opts = {
             log_level = "error",
-            auto_session_allowed_dirs = {"~/*"},
             auto_save = true,
             auto_restore = true,
             auto_create = false,
