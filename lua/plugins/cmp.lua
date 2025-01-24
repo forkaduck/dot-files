@@ -56,11 +56,11 @@ function cmp_init()
         mapping = global_mapping,
 
         sources = cmp.config.sources({
-            { 
+            {
                 name = "nvim_lsp",
                 priority = 4
             },
-            { 
+            {
                 name = "path",
                 priority = 3
             },
@@ -68,7 +68,7 @@ function cmp_init()
                 name = "codeium",
                 priority = 3
             },
-            --  { 
+            --  {
                 --  name = "treesitter",
                 --  priority = 3
             --  },
@@ -111,7 +111,7 @@ function cmp_init()
             if vim.api.nvim_get_mode().mode == 'c' then
                 return true
             else
-                return not context.in_treesitter_capture("comment") 
+                return not context.in_treesitter_capture("comment")
                 and not context.in_syntax_group("Comment")
             end
         end,
@@ -162,10 +162,10 @@ end
 
 return {
 	-- Completion plugin
-    { 
+    {
         "hrsh7th/nvim-cmp",
         config = cmp_init,
-        dependencies = { 
+        dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "ray-x/cmp-treesitter",
             "hrsh7th/cmp-path",
@@ -174,4 +174,3 @@ return {
         },
     },
 }
-
