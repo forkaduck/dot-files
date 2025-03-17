@@ -1,3 +1,16 @@
+
+function os.capture(cmd, raw)
+  local f = assert(io.popen(cmd, 'r'))
+  local s = assert(f:read('*a'))
+  f:close()
+  if raw then return s end
+  s = string.gsub(s, '^%s+', '')
+  s = string.gsub(s, '%s+$', '')
+  s = string.gsub(s, '[\n\r]+', ' ')
+  return s
+end
+
+
 function dap_init()
     local dap = require('dap')
 
@@ -38,7 +51,11 @@ function dap_init()
         type = 'lldb',
         request = 'launch',
         program = function()
-            return vim.fn.input('Path to executable?: ', vim.fn.getcwd() .. '/target/debug/' .. string.match(vim.fn.getcwd(), "[^/]+$") , 'file')
+            local target_dir = os.capture("/usr/bin/cargo metadata --no-deps --format-version 1 | /usr/bin/jq -r .target_directory", false)
+
+            --  return vim.fn.input('Path to executable?: ', vim.fn.getcwd() .. '/target/debug/' ..
+            --  string.match(vim.fn.getcwd(), "[^/]+$") , 'file')
+            return vim.fn.input('Path to executable?: ', target_dir .. '/debug/examples/glasses' , 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
