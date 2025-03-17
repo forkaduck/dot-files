@@ -65,8 +65,8 @@ return {
               hi CmpItemKindProperty guibg=NONE guifg=#D4D4D4
               hi CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 
-              hi Normal ctermbg=none guibg=none
-              hi NormalNC ctermbg=none guibg=none
+              hi Normal ctermbg=none guibg=none guifg=#cccccc
+              hi NormalNC ctermbg=none guibg=none guifg=#cccccc
               hi NonText ctermbg=none guibg=none
               hi EndOfBuffer ctermbg=none guibg=none
           ]], true)
