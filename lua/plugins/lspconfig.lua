@@ -39,7 +39,7 @@ function lspconfig_init()
                 }
             },
             checkOnSave = {
-                command = "clippy",
+                command = "clippy --all -- -D warnings -W clippy::pedantic -A clippy::missing_errors_doc -A clippy::module_name_repetitions -A clippy::manual_c_str_literals",
                 allTargets = true
             },
         }
