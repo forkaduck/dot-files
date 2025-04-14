@@ -25,24 +25,35 @@ function lspconfig_init()
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
-        ['rust-analyzer'] = {
-            diagnostics = {
-                    enable = true
+            ["rust-analyzer"] = {
+                cargo = {
+                    allFeatures = true,
+                    loadOutDirsFromCheck = true,
+                    runBuildScripts = true,
                 },
-                experimental = {
-                    enable = true
+                -- Add clippy lints for Rust.
+                checkOnSave = {
+                    allFeatures = true,
+                    command = "clippy",
+                    extraArgs = {
+                        "--",
+                        "--no-deps",
+                        "-Dclippy::correctness",
+                        "-Dclippy::complexity",
+                        "-Wclippy::perf",
+                        "-Wclippy::pedantic",
+                    },
+                },
+                procMacro = {
+                    enable = true,
+                    ignored = {
+                        ["async-trait"] = { "async_trait" },
+                        ["napi-derive"] = { "napi" },
+                        ["async-recursion"] = { "async_recursion" },
+                    },
                 },
             },
-            inlayHints = {
-                parameterHints = {
-                    enable = true
-                }
-            },
-            checkOnSave = {
-                command = "clippy --all -- -D warnings -W clippy::pedantic -A clippy::missing_errors_doc -A clippy::module_name_repetitions -A clippy::manual_c_str_literals",
-                allTargets = true
-            },
-        }
+        },
     })
 
     require("lspconfig").asm_lsp.setup({
