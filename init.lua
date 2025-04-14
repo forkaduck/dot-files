@@ -190,7 +190,7 @@ vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").live_gr
 vim.keymap.set("n", "<leader>n", '<cmd>NnnPicker<CR>', {})
 vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
 vim.keymap.set("n", "<leader>th", function() toggle_inlay_hint() end, {})
-
+vim.keymap.set("n", "<leader>w", function() require("supermaven-nvim.api").toggle() end, {})
 
 -- Lsp actions.
 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
