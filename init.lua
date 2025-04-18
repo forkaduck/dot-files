@@ -145,6 +145,8 @@ vim.wo.list = false
 -- Add characters as word boundaries
 --  vim.o.iskeyword = "@-@"
 
+require("config.lazy")
+
 -- --- Key remapping ---
 local function map(mode, lhs, rhs, opts)
 	local options = { noremap = false, silent = false }
@@ -192,6 +194,11 @@ vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
 vim.keymap.set("n", "<leader>th", function() toggle_inlay_hint() end, {})
 vim.keymap.set("n", "<leader>w", function() require("supermaven-nvim.api").toggle() end, {})
 
+-- Harpoon
+local harpoon = require("harpoon")
+vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {})
+vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, {})
+
 -- Lsp actions.
 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
 vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {})
@@ -217,5 +224,3 @@ vim.api.nvim_create_autocmd('CursorHold', {
         vim.diagnostic.open_float(0, {scope="line", focusable=false})
     end,
 })
-
-require("config.lazy")

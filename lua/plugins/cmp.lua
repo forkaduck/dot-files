@@ -150,12 +150,12 @@ function cmp_init()
             source = "always",
             prefix = "⮜",
             format = function(diagnostic)
-                if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                    return string.format("❌: %s", diagnostic.message)
-                else
-                    return string.format("❓: %s", diagnostic.message)
-                end
-                return diagnostic.message
+                --  if diagnostic.severity == vim.diagnostic.severity.ERROR then
+                    --  return string.format("❌: %s", diagnostic.message)
+                --  else
+                    --  return string.format("❓: %s", diagnostic.message)
+                --  end
+                --  return diagnostic.message
             end,
         },
     })
