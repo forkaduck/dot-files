@@ -27,6 +27,7 @@ function treesitter_init()
             "javascript",
             "typescript",
             "markdown",
+            "vimdoc",
         },
         sync_install = false,
         auto_install = true,
