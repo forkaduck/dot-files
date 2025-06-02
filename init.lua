@@ -149,7 +149,8 @@ vim.wo.linebreak = true
 vim.wo.list = false
 
 -- Add characters as word boundaries
---  vim.o.iskeyword = "@-@"
+vim.opt.iskeyword:remove("_")
+vim.opt.iskeyword:remove("-")
 
 require("config.lazy")
 
