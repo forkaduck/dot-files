@@ -155,18 +155,6 @@ vim.opt.iskeyword:remove("-")
 require("config.lazy")
 
 -- --- Key remapping ---
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = false, silent = false }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-local function t(str)
-	return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
 -- Tabswitching
 vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
 vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
@@ -221,9 +209,8 @@ end
 
 -- Autocommands
 -- On hover floating window.
-vim.api.nvim_create_augroup('bufcheck', {clear = true})
+vim.api.nvim_create_augroup('bufcheck', { clear = true })
 
-vim.o.updatetime = 300
 vim.api.nvim_create_autocmd('CursorHold', {
     group = "bufcheck",
     pattern = '*',
