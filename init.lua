@@ -218,3 +218,14 @@ vim.api.nvim_create_autocmd('CursorHold', {
         vim.diagnostic.open_float(0, {scope="line", focusable=false})
     end,
 })
+
+-- Overwrite some filetypes to make syntax highlighting work. (Mostly)
+vim.api.nvim_create_augroup('filetypeoverwrite', { clear = true })
+
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufReadPost'}, {
+    group = "filetypeoverwrite",
+    pattern = "*.cl",
+    callback = function ()
+        vim.cmd('set filetype=c', {})
+    end,
+})
