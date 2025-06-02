@@ -28,30 +28,30 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 
 -- --- General settings ---
--- enable line numbers
+-- Enable line numbers.
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- enable corrections for the english language
+-- Spellcheck.
 vim.opt.spell = true
 vim.opt.spelllang = "en,de"
 
--- fix end of line
+-- Fix end of line.
 vim.opt.fixeol = false
 
--- disables redraw on some events
+-- Disables redraw on some events.
 vim.opt.lazyredraw = true
 
--- automatically load changed files
+-- Automatically load changed files.
 vim.opt.autoread = true
 
--- show filename in title
+-- Show filename in title.
 vim.opt.title = true
 
--- let vim open up to 100 tabs at once
+-- Let vim open up to 100 tabs at once.
 vim.opt.tabpagemax = 100
 
--- case-insensitive filename completion
+-- Case-insensitive filename completion.
 vim.opt.wildignorecase = true
 
 -- Make sign gutter autosize with two rows
