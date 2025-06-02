@@ -58,7 +58,15 @@ function cmp_init()
 
         sources = cmp.config.sources({
             {
+                name = "nvim_lsp_signature_help",
+                priority = 4
+            },
+            {
                 name = "nvim_lsp",
+                priority = 4
+            },
+            {
+                name = "nvim_lua",
                 priority = 4
             },
             {
@@ -138,26 +146,14 @@ function cmp_init()
     })
 
     vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = false,
         signs = true,
         underline = true,
         update_in_insert = true,
         severity_sort = true,
         float = {
             source = "always",
-        },
-        virtual_text = {
-            source = "always",
-            prefix = "⮜",
-            format = function(diagnostic)
-                --  if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                    --  return string.format("❌: %s", diagnostic.message)
-                --  else
-                    --  return string.format("❓: %s", diagnostic.message)
-                --  end
-                --  return diagnostic.message
-            end,
-        },
+        }
     })
 end
 
@@ -168,9 +164,11 @@ return {
         config = cmp_init,
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "ray-x/cmp-treesitter",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-buffer",
+            "ray-x/cmp-treesitter",
             "saadparwaiz1/cmp_luasnip"
         },
     },
