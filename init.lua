@@ -54,6 +54,9 @@ vim.opt.tabpagemax = 100
 -- Case-insensitive filename completion.
 vim.opt.wildignorecase = true
 
+-- Modify completion window.
+vim.opt.completeopt = {'menuone', 'noinsert', 'popup', 'preview'}
+
 -- Make sign gutter autosize with two rows
 vim.opt.signcolumn = "yes:2"
 
