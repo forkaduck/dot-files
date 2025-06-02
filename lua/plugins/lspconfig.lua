@@ -32,7 +32,8 @@ function lspconfig_init()
                     runBuildScripts = true,
                 },
                 -- Add clippy lints for Rust.
-                checkOnSave = {
+                checkOnSave = true,
+                check = {
                     allFeatures = true,
                     command = "clippy",
                     extraArgs = {
@@ -73,34 +74,10 @@ function lspconfig_init()
         on_attach = on_attach,
     })
 
-    --  require("lspconfig").cmake.setup({
-        --  capabilities = capabilities,
-        --  on_attach = on_attach,
-    --  })
-
     require('lspconfig').pylsp.setup ({
         capabilities = capabilities,
         on_attach = on_attach,
     })
-
-    --  require('lspconfig').
-    -- --- Custom language servers ---
-    -- require("null-ls").setup({
-        -- capabilities = capabilities,
-        -- sources = {
-            -- require("null-ls").builtins.diagnostics.flake8,
-            -- -- require("null_ls").builtins.diagnostics.proselint,
-            -- require("null-ls").builtins.formatting.stylua,
-            -- require("null-ls").builtins.formatting.black,
-
-            -- require("null-ls").builtins.diagnostics.shellcheck,
-            -- require("null-ls").builtins.code_actions.shellcheck,
-        -- },
-        -- -- debug = true,
-        -- debounce = 200,
-        -- default_timeout = 5000,
-        -- diagnostics_format = "[#{c}] #{m} (#{s})",
-    -- })
 
     require("lspconfig").veridian.setup({
         capabilities = capabilities,
