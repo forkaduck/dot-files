@@ -127,6 +127,9 @@ vim.opt.autoindent = true
 -- for C-like files
 vim.opt.smartindent = false
 
+-- Swap file write delay
+vim.o.updatetime = 1000
+
 -- --- Temp files ---
 -- Set the temporary file directories to something more usable.
 vim.opt.backupdir = vim.fn.expand("$HOME/.local/share/nvim/backup//")
