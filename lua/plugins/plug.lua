@@ -240,4 +240,13 @@ return {
             require("harpoon").setup()
         end,
     },
+
+    {
+        "m-demare/hlargs.nvim",
+        config = function ()
+            require('hlargs').setup {
+                color = "#FF41FF"
+            }
+        end
+    },
 }
