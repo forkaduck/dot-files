@@ -198,6 +198,8 @@ vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, {})
 vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
 vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {})
 
+vim.keymap.set("i", "<leader><Tab>", function() require("neocodeium").accept() end, {noremap = true, silent = true})
+
 -- Toggles inlay hints, (function argument names, types, usw).
 function toggle_inlay_hint()
     if vim.lsp.inlay_hint.is_enabled() then
