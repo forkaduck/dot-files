@@ -32,9 +32,11 @@ end
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Spellcheck.
-vim.opt.spell = true
-vim.opt.spelllang = "en,de"
+if not vim.g.vscode then
+    -- Spellcheck.
+    vim.opt.spell = true
+    vim.opt.spelllang = "en,de"
+end
 
 -- Fix end of line.
 vim.opt.fixeol = false
@@ -152,7 +154,9 @@ vim.wo.list = false
 vim.opt.iskeyword:remove("_")
 vim.opt.iskeyword:remove("-")
 
-require("config.lazy")
+if not vim.g.vscode then
+    require("config.lazy")
+end
 
 -- --- Key remapping ---
 -- Tabswitching
@@ -163,71 +167,90 @@ vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
 vim.keymap.set("n", ">", "<cmd>BufferMoveNext<CR>", {})
 vim.keymap.set("n", "<", "<cmd>BufferMovePrevious<CR>", {})
 
--- Jump to code diagnostics
-vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
-vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions{} end, {})
-vim.keymap.set("n", "gi", function() require("telescope.builtin").lsp_implementations{} end, {})
-vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references{} end, {})
+if not vim.g.vscode then
+    -- Jump to code diagnostics
+    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
+    vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions{} end, {})
+    vim.keymap.set("n", "gi", function() require("telescope.builtin").lsp_implementations{} end, {})
+    vim.keymap.set("n", "gr", function() require("telescope.builtin").lsp_references{} end, {})
 
--- Debugging
-vim.keymap.set("n", "db", function() require('dap').toggle_breakpoint() end, {})
-vim.keymap.set("n", "dc", function() require('dap').continue() end, {})
-vim.keymap.set("n", "dr", function() require('dap').repl.open({}, 'vsplit') end, {})
-vim.keymap.set("n", "<Up>", function() require('dap').step_back() end, {})
-vim.keymap.set("n", "<Down>", function() require('dap').step_over() end, {})
-vim.keymap.set("n", "<Right>", function() require('dap').step_into() end, {})
-vim.keymap.set("n", "<Left>", function() require('dap').step_out() end, {})
+    -- Debugging
+    vim.keymap.set("n", "db", function() require('dap').toggle_breakpoint() end, {})
+    vim.keymap.set("n", "dc", function() require('dap').continue() end, {})
+    vim.keymap.set("n", "dr", function() require('dap').repl.open({}, 'vsplit') end, {})
+    vim.keymap.set("n", "<Up>", function() require('dap').step_back() end, {})
+    vim.keymap.set("n", "<Down>", function() require('dap').step_over() end, {})
+    vim.keymap.set("n", "<Right>", function() require('dap').step_into() end, {})
+    vim.keymap.set("n", "<Left>", function() require('dap').step_out() end, {})
 
--- Hover show
-vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, {})
+    -- Hover show
+    vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, {})
 
--- Misc.
-vim.keymap.set("n", "<leader>s", function() require("telescope.builtin").spell_suggest{} end, {})
-vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").live_grep{} end, {})
-vim.keymap.set("n", "<leader>n", '<cmd>NnnPicker<CR>', {})
-vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
-vim.keymap.set("n", "<leader>th", function() toggle_inlay_hint() end, {})
-vim.keymap.set("n", "<leader>w", function() require("supermaven-nvim.api").toggle() end, {})
+    -- Misc.
+    vim.keymap.set("n", "<leader>s", function() require("telescope.builtin").spell_suggest{} end, {})
+    vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").live_grep{} end, {})
+    vim.keymap.set("n", "<leader>n", '<cmd>NnnPicker<CR>', {})
+    vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeShow<CR>", {})
+    vim.keymap.set("n", "<leader>th", function() toggle_inlay_hint() end, {})
+    vim.keymap.set("n", "<leader>w", function() require("supermaven-nvim.api").toggle() end, {})
 
--- Harpoon
-local harpoon = require("harpoon")
-vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {})
-vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, {})
+    -- Harpoon
+    local harpoon = require("harpoon")
+    vim.keymap.set("n", "<leader>t", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {})
+    vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end, {})
 
--- Lsp actions.
-vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
-vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {})
+    -- Lsp actions.
+    vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, {})
+    vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, {})
 
-vim.keymap.set("i", "<leader><Tab>", function() require("neocodeium").accept() end, {noremap = true, silent = true})
+    vim.keymap.set("i", "<leader><Tab>", function() require("neocodeium").accept() end, {noremap = true, silent = true})
 
--- Toggles inlay hints, (function argument names, types, usw).
-function toggle_inlay_hint()
-    if vim.lsp.inlay_hint.is_enabled() then
-        vim.lsp.inlay_hint.enable(false, { bufnr })
-    else
-        vim.lsp.inlay_hint.enable(true, { bufnr })
+    -- Toggles inlay hints, (function argument names, types, usw).
+    function toggle_inlay_hint()
+        if vim.lsp.inlay_hint.is_enabled() then
+            vim.lsp.inlay_hint.enable(false, { bufnr })
+        else
+            vim.lsp.inlay_hint.enable(true, { bufnr })
+        end
     end
+
+    -- Autocommands
+    -- On hover floating window.
+    vim.api.nvim_create_augroup('bufcheck', { clear = true })
+
+    vim.api.nvim_create_autocmd('CursorHold', {
+        group = "bufcheck",
+        pattern = '*',
+        callback = function()
+            vim.diagnostic.open_float(0, {scope="line", focusable=false})
+        end,
+    })
+
+    -- Overwrite some filetypes to make syntax highlighting work. (Mostly)
+    vim.api.nvim_create_augroup('filetypeoverwrite', { clear = true })
+
+    vim.api.nvim_create_autocmd({'BufNewFile', 'BufReadPost'}, {
+        group = "filetypeoverwrite",
+        pattern = "*.cl",
+        callback = function ()
+            vim.cmd('set filetype=c', {})
+        end,
+    })
+else
+    vim.keymap.set("n", "<leader>s", function() require('vscode').action('workbench.action.quickOpen') end, {})
+    vim.keymap.set("n", "<leader>f", function() require('vscode').action('workbench.action.findInFiles') end, {})
+    vim.keymap.set("n", "<leader>c", function() require('vscode').action('editor.action.quickFix') end, {})
+    vim.keymap.set("n", "<leader>r", function() require('vscode').action('editor.action.rename') end, {})
+    vim.keymap.set("n", "<leader><space>", function() require('vscode').action('editor.action.blockComment') end, {})
+
+
+    -- Jump to Declaration
+    vim.keymap.set("n", "gD", function() require('vscode').action('editor.action.revealDeclaration') end, {})
+    vim.keymap.set("n", "gd", function() require('vscode').action('editor.action.revealDefinition') end, {})
+    vim.keymap.set("n", "gi", function() require('vscode').action('editor.action.goToImplementation') end, {})
+    vim.keymap.set("n", "gr", function() require('vscode').action('editor.action.goToReferences') end, {})
+
+    -- Debugging
+    vim.keymap.set("n", "db", function() require('vscode').action('editor.debug.action.toggleBreakpoint') end, {})
+    vim.keymap.set("n", "dc", function() require('vscode').action('workbench.action.debug.continue') end, {})
 end
-
--- Autocommands
--- On hover floating window.
-vim.api.nvim_create_augroup('bufcheck', { clear = true })
-
-vim.api.nvim_create_autocmd('CursorHold', {
-    group = "bufcheck",
-    pattern = '*',
-    callback = function()
-        vim.diagnostic.open_float(0, {scope="line", focusable=false})
-    end,
-})
-
--- Overwrite some filetypes to make syntax highlighting work. (Mostly)
-vim.api.nvim_create_augroup('filetypeoverwrite', { clear = true })
-
-vim.api.nvim_create_autocmd({'BufNewFile', 'BufReadPost'}, {
-    group = "filetypeoverwrite",
-    pattern = "*.cl",
-    callback = function ()
-        vim.cmd('set filetype=c', {})
-    end,
-})
