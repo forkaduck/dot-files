@@ -1,0 +1,53 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "Ctrl+l",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "Ctrl+h",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "Shift+,",
+    "command": "workbench.action.moveEditorLeftInGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "Shift+.",
+    "command": "workbench.action.moveEditorRightInGroup",
+    "when": "editorTextFocus"
+  },
+  // Search
+  {
+    "key": "ctrl+n",
+    "command": "search.action.focusNextSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "search.action.focusPreviousSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
+  },
+  // Debugging
+  {
+    "key": "up",
+    "command": "workbench.action.debug.stepBack",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "down",
+    "command": "workbench.action.debug.stepOver",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "right",
+    "command": "workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "left",
+    "command": "workbench.action.debug.stepOut",
+    "when": "debugState != 'inactive'"
+  },
+]

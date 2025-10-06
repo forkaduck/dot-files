@@ -1,0 +1,32 @@
+{
+  "workbench.colorTheme": "One Dark Pro Monokai Darker",
+  "editor.lineNumbers": "relative",
+  "editor.hover.delay": 150,
+  "workbench.hover.delay": 150,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.renderLineHighlight": "none",
+  "editor.inlayHints.enabled": "off",
+  "editor.autoClosingBrackets": "never",
+  "editor.codeLens": false,
+  "files.readonlyInclude": {
+    "**/.cargo/registry/src/**/*.rs": true,
+    "**/.cargo/git/checkouts/**/*.rs": true,
+    "**/lib/rustlib/src/rust/library/**/*.rs": true
+  },
+  "vscode-neovim.neovimClean": false,
+  "keyboard.dispatch": "keyCode",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "rust-analyzer.checkOnSave": true,
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.cargo.extraArgs": [
+    "--",
+    "--no-deps",
+    "-Dclippy::correctness",
+    "-Dclippy::complexity",
+    "-Wclippy::perf",
+    "-Wclippy::pedantic"
+  ]
+}
