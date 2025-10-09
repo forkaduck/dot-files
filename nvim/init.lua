@@ -237,6 +237,9 @@ if not vim.g.vscode then
         end,
     })
 else
+    vim.keymap.set("n", "<c-h>", function() require('vscode').action('workbench.action.previousEditor') end, {})
+    vim.keymap.set("n", "<c-l>", function() require('vscode').action('workbench.action.nextEditor') end, {})
+
     vim.keymap.set("n", "<leader>s", function() require('vscode').action('workbench.action.quickOpen') end, {})
     vim.keymap.set("n", "<leader>f", function() require('vscode').action('workbench.action.findInFiles') end, {})
     vim.keymap.set("n", "<leader>c", function() require('vscode').action('editor.action.quickFix') end, {})
