@@ -14,6 +14,13 @@
     "**/.cargo/git/checkouts/**/*.rs": true,
     "**/lib/rustlib/src/rust/library/**/*.rs": true
   },
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info",
+    "hint"
+  ],
   "vscode-neovim.neovimClean": false,
   "keyboard.dispatch": "keyCode",
   "extensions.experimental.affinity": {
