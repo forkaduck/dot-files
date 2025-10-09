@@ -1,13 +1,21 @@
 {
   "workbench.colorTheme": "One Dark Pro Monokai Darker",
   "editor.lineNumbers": "relative",
+  "editor.guides.bracketPairs": "active",
   "editor.hover.delay": 150,
   "workbench.hover.delay": 150,
+  "editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "none",
   "editor.inlayHints.enabled": "off",
   "editor.autoClosingBrackets": "never",
+  "editor.autoClosingOvertype": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoClosingComments": "never",
   "editor.codeLens": false,
   "files.readonlyInclude": {
     "**/.cargo/registry/src/**/*.rs": true,
@@ -37,7 +45,5 @@
     "-Wclippy::pedantic"
   ],
   "cSpell.useCustomDecorations": true,
-  "editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace",
-  "editor.fontSize": 14,
   "git.openRepositoryInParentFolders": "never",
 }
