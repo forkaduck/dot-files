@@ -3,12 +3,12 @@
   {
     "key": "Shift+,",
     "command": "workbench.action.moveEditorLeftInGroup",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
   },
   {
     "key": "Shift+.",
     "command": "workbench.action.moveEditorRightInGroup",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
   },
   // Search
   {
