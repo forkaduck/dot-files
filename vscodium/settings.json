@@ -38,4 +38,6 @@
   ],
   "cSpell.useCustomDecorations": true,
   "editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace",
+  "editor.fontSize": 14,
+  "git.openRepositoryInParentFolders": "never",
 }
