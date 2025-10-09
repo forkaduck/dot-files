@@ -35,5 +35,6 @@
     "-Dclippy::complexity",
     "-Wclippy::perf",
     "-Wclippy::pedantic"
-  ]
+  ],
+  "cSpell.useCustomDecorations": true,
 }
