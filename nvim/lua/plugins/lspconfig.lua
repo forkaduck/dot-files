@@ -21,7 +21,7 @@ function lspconfig_init()
         end
     end
 
-    require("lspconfig").rust_analyzer.setup({
+    vim.lsp.config('rust_analyzer', {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -51,38 +51,44 @@ function lspconfig_init()
             },
         },
     })
+    vim.lsp.enable('rust_analyzer')
 
-    require("lspconfig").asm_lsp.setup({
+    vim.lsp.config('asm_lsp', {
         filetypes = {"asm", "vmasm", "nasm"},
         capabilities = capabilities,
         on_attach = on_attach,
     })
+    vim.lsp.enable('asm_lsp')
 
-
-    require("lspconfig").pyright.setup({
+    vim.lsp.config('basedpyright', {
         capabilities = capabilities,
         on_attach = on_attach,
     })
+    vim.lsp.enable('basedpyright')
 
-    require("lspconfig").clangd.setup({
+    vim.lsp.config('clangd', {
         capabilities = capabilities,
         on_attach = on_attach,
     })
+    vim.lsp.enable('clangd')
 
-    require('lspconfig').pylsp.setup ({
+    --vim.lsp.config('pylsp', {
+    --    capabilities = capabilities,
+    --    on_attach = on_attach,
+    --})
+    --vim.lsp.enable('pylsp')
+
+    vim.lsp.config('veridian', {
         capabilities = capabilities,
         on_attach = on_attach,
     })
+    vim.lsp.enable('veridian')
 
-    require("lspconfig").veridian.setup({
+    vim.lsp.config('jdtls', {
         capabilities = capabilities,
         on_attach = on_attach,
     })
-
-    require("lspconfig").jdtls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    })
+    vim.lsp.enable('jdtls')
 end
 
 
