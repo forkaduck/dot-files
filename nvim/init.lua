@@ -156,18 +156,16 @@ vim.opt.iskeyword:remove("-")
 
 if not vim.g.vscode then
     require("config.lazy")
-end
 
--- --- Key remapping ---
--- Tabswitching
-vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
-vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
+    -- --- Key remapping ---
+    -- Tabswitching
+    vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
+    vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
 
--- Tab-move
-vim.keymap.set("n", ">", "<cmd>BufferMoveNext<CR>", {})
-vim.keymap.set("n", "<", "<cmd>BufferMovePrevious<CR>", {})
+    -- Tab-move
+    vim.keymap.set("n", ">", "<cmd>BufferMoveNext<CR>", {})
+    vim.keymap.set("n", "<", "<cmd>BufferMovePrevious<CR>", {})
 
-if not vim.g.vscode then
     -- Jump to code diagnostics
     vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
     vim.keymap.set("n", "gd", function() require("telescope.builtin").lsp_definitions{} end, {})
