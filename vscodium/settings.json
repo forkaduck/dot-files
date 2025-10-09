@@ -37,4 +37,5 @@
     "-Wclippy::pedantic"
   ],
   "cSpell.useCustomDecorations": true,
+  "editor.fontFamily": "'FiraCode Nerd Font', 'monospace', monospace",
 }
