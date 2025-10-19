@@ -155,7 +155,7 @@ vim.opt.iskeyword:remove("_")
 vim.opt.iskeyword:remove("-")
 
 if not vim.g.vscode then
-    require("config.lazy")
+    require("lazy.lazy")
 
     -- --- Key remapping ---
     -- Tabswitching
@@ -254,4 +254,6 @@ else
     -- Debugging
     vim.keymap.set("n", "db", function() require('vscode').action('editor.debug.action.toggleBreakpoint') end, {})
     vim.keymap.set("n", "dc", function() require('vscode').action('workbench.action.debug.continue') end, {})
+
+    print('VSCode config used')
 end
