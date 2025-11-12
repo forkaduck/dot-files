@@ -33,6 +33,16 @@
     "info",
     "hint"
   ],
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      // All-themes colors
+      "unresolvedReference": {
+        "foreground": "#c93f3f",
+        "fontStyle": "bold"
+      },
+    },
+  },
   "vscode-neovim.neovimClean": false,
   "keyboard.dispatch": "keyCode",
   "extensions.experimental.affinity": {
