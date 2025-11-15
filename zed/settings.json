@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diagnostics": {
+    "lsp_pull_diagnostics": {
+      "debounce_ms": 25
+    },
+    "inline": {
+      "update_debounce_ms": 25
+    }
+  },
+  "lsp_highlight_debounce": 50,
   "inlay_hints": {
     "enabled": false
   },
@@ -18,7 +27,7 @@
   },
   "use_auto_surround": false,
   "use_autoclose": false,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "git": {
     "inline_blame": {
       "enabled": false
@@ -35,15 +44,16 @@
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy",
-          "extraArgs": [
-            "--",
-            "--no-deps",
-            "-Dclippy::correctness",
-            "-Dclippy::complexity",
-            "-Wclippy::perf",
-            "-Wclippy::pedantic"
-          ]
+          // "command": "clippy",
+          // "extraArgs": [
+          // "--",
+          // "--no-deps",
+          // "-Dclippy::correctness",
+          // "-Dclippy::complexity",
+          // "-Wclippy::perf",
+          // "-Wclippy::pedantic"
+          // ]
+          "command": "check"
         }
       }
     }
