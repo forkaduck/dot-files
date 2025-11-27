@@ -28,7 +28,7 @@ include outputs
 include workspaces
 
 #  set $cl_high #771100
-set $cl_high #0de5ca
+set $cl_high #8caaee
 set $cl_indi #ee99a0
 
  #Nice shade of black
