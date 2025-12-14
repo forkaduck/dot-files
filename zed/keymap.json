@@ -35,5 +35,11 @@
     "bindings": {
       "Left": "debugger::StepOut"
     }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "g r": "editor::FindAllReferences"
+    }
   }
 ]
