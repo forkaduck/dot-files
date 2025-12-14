@@ -9,37 +9,13 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "g b": "editor::ToggleBreakpoint"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "Up": "debugger::StepBack"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "Right": "debugger::StepInto"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "Down": "debugger::StepOver"
-    }
-  },
-  {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "Left": "debugger::StepOut"
-    }
-  },
-  {
-    "context": "(VimControl && !menu)",
-    "bindings": {
-      "g r": "editor::FindAllReferences"
+      "g b": "editor::ToggleBreakpoint",
+      "Up": "debugger::StepBack",
+      "Right": "debugger::StepInto",
+      "Down": "debugger::StepOver",
+      "Left": "debugger::StepOut",
+      "g r r": "editor::FindAllReferences",
+      "g f": "file_finder::Toggle"
     }
   }
 ]
