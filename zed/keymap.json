@@ -17,5 +17,14 @@
       "g r r": "editor::FindAllReferences",
       "g f": "file_finder::Toggle"
     }
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "n d": "project_panel::NewDirectory",
+      "n f": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "x": "project_panel::Delete"
+    }
   }
 ]
