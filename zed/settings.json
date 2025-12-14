@@ -7,6 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "soft_wrap": "editor_width",
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "deepseek",
+      "model": "deepseek-reasoner"
+    },
+    "model_parameters": []
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://10.0.1.11:11434"
+    }
+  },
   "diagnostics": {
     "lsp_pull_diagnostics": {
       "debounce_ms": 25
