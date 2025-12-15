@@ -197,29 +197,6 @@ return {
         },
     },
 
-    -- AI Coding Assistent
-    {
-        "monkoose/neocodeium",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = function()
-            local neocodeium = require("neocodeium").setup({
-                show_label = false,
-            })
-        end
-    },
-    --  {
-        --  "supermaven-inc/supermaven-nvim",
-        --  config = function()
-            --  require("supermaven-nvim").setup({
-                --  disable_inline_completion = false,
-                --  disable_keymaps = false,
-            --  })
-        --  end,
-    --  },
-
     -- Remove lines at the end of files.
     {
         "mcauley-penney/tidy.nvim",
