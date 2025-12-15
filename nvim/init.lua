@@ -162,8 +162,8 @@ vim.keymap.set("n", "<c-h>", "<cmd>BufferPrevious<CR>", {})
 vim.keymap.set('n', '<c-l>', '<cmd>BufferNext<CR>', {})
 
 -- Tab-move
-vim.keymap.set("n", ">", "<cmd>BufferMoveNext<CR>", {})
-vim.keymap.set("n", "<", "<cmd>BufferMovePrevious<CR>", {})
+vim.keymap.set("n", "gt", "<cmd>BufferMoveNext<CR>", {})
+vim.keymap.set("n", "gT", "<cmd>BufferMovePrevious<CR>", {})
 
 -- Jump to code diagnostics
 vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, {})
