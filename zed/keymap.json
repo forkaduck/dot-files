@@ -15,8 +15,9 @@
       "Down": "debugger::StepOver",
       "Left": "debugger::StepOut",
       "g r r": "editor::FindAllReferences",
-      "g f": "file_finder::Toggle"
-    }
+      "g f": "file_finder::Toggle",
+      "g r p": "projects::OpenRemote",
+    },
   },
   {
     "context": "(ProjectPanel && not_editing)",
