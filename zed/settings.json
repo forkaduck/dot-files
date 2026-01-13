@@ -7,46 +7,54 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "search": {
+    "regex": true,
+    "case_sensitive": true,
+  },
+  "debugger": {
+    "dock": "right",
+  },
   "agent_buffer_font_size": 16.0,
   "soft_wrap": "editor_width",
   "agent": {
+    "enable_feedback": false,
     "default_profile": "ask",
     "default_model": {
       "provider": "deepseek",
-      "model": "deepseek-reasoner"
+      "model": "deepseek-reasoner",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "language_models": {
     "ollama": {
-      "api_url": "http://10.0.1.11:11434"
-    }
+      "api_url": "http://10.0.1.11:11434",
+    },
   },
   "diagnostics": {
     "lsp_pull_diagnostics": {
-      "debounce_ms": 25
+      "debounce_ms": 25,
     },
     "inline": {
-      "update_debounce_ms": 25
-    }
+      "update_debounce_ms": 25,
+    },
   },
   "lsp_highlight_debounce": 50,
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
   },
   "current_line_highlight": "gutter",
   "buffer_font_weight": 250.0,
   "buffer_line_height": "comfortable",
   "jsx_tag_auto_close": {
-    "enabled": false
+    "enabled": false,
   },
   "use_auto_surround": false,
   "use_autoclose": false,
   "relative_line_numbers": "enabled",
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "agent_ui_font_size": 16.0,
   "buffer_font_family": "Fira Code",
@@ -68,10 +76,10 @@
           // "-Wclippy::perf",
           // "-Wclippy::pedantic"
           // ]
-          "command": "check"
-        }
-      }
-    }
+          "command": "check",
+        },
+      },
+    },
   },
   "auto_install_extensions": {
     "codebook": true,
@@ -82,10 +90,10 @@
     "monokai-nebula": true,
     "pylsp": true,
     "toml": true,
-    "verilog": true
+    "verilog": true,
   },
   "file_types": {
-    "C": ["cl"]
+    "C": ["cl"],
   },
   "experimental.theme_overrides": {
     "background.appearance": "blurred",
@@ -145,6 +153,6 @@
     "ghost_element.selected": "#8caaee20",
     "drop_target.background": "#8caaee20",
     "element.hover": "#8caaee10",
-    "editor.highlighted_line.background": "#8caaee25"
-  }
+    "editor.highlighted_line.background": "#8caaee25",
+  },
 }
