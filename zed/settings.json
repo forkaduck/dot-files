@@ -14,7 +14,6 @@
   "debugger": {
     "dock": "right",
   },
-  "agent_buffer_font_size": 16.0,
   "soft_wrap": "editor_width",
   "agent": {
     "enable_feedback": false,
@@ -56,6 +55,7 @@
       "enabled": false,
     },
   },
+  "agent_buffer_font_size": 14.0,
   "agent_ui_font_size": 16.0,
   "buffer_font_family": "Fira Code",
   "vim_mode": true,
